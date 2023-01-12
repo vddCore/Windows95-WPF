@@ -1,0 +1,9 @@
+﻿<Application x:Class="WindowsOldWindow.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WindowsOldWindow"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Windows95;component/Themes/ClassicStyle.xaml" />
+    </Application.Resources>
+</Application>

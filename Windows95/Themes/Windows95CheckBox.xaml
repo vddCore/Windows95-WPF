@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="FontFamily" Value="Arial" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="13"
+                              Height="13"
+                              Background="White"
+                              Name="PART_MainGrid">
+                            <Border BorderBrush="#828282"
+                                    BorderThickness="1,1,0,0" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" />
+                            <Border BorderBrush="White"
+                                    BorderThickness="0,0,1,1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" />
+                            
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1,1,0,0"
+                                    Margin="1,1,2,2"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" />
+                            
+                            <Border BorderBrush="#C3C3C3"
+                                    BorderThickness="0,0,1,1"
+                                    Margin="1,1,1,1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" />
+                            
+                            <Image Width="9"
+                                   Height="9"
+                                   Source="../Images/CheckMark.png" 
+                                   x:Name="PART_CheckMark" 
+                                   RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                   Visibility="Collapsed" />
+                        </Grid>
+
+                        <Border BorderThickness="1" x:Name="PART_FocusStroke"
+                                Margin="5,0,0,0">
+                            <Border.BorderBrush>
+                                <DrawingBrush Viewport="0,0,2,2" ViewportUnits="Absolute" TileMode="Tile">
+                                    <DrawingBrush.Drawing>
+                                        <DrawingGroup>
+                                            <GeometryDrawing Brush="Black">
+                                                <GeometryDrawing.Geometry>
+                                                    <GeometryGroup>
+                                                        <RectangleGeometry Rect="0,0,50,50" />
+                                                        <RectangleGeometry Rect="50,50,50,50" />
+                                                    </GeometryGroup>
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingBrush.Drawing>
+                                </DrawingBrush>
+                            </Border.BorderBrush>
+
+                            <TextBlock Text="{TemplateBinding Content}" Foreground="Black" Name="PART_MainText" />
+                        </Border>
+                    </StackPanel>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PART_CheckMark" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="PART_MainGrid" Property="Background" Value="#828282" />
+                        </Trigger>
+                        
+                        <Trigger Property="IsFocused" Value="False">
+                            <Setter TargetName="PART_FocusStroke" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_MainGrid" Property="Background" Value="#828282" />
+                            
+                            <Setter TargetName="PART_MainText" Property="Foreground" Value="#828282" />
+                            
+                            <Setter TargetName="PART_MainText" Property="Effect">
+                                <Setter.Value>
+                                        <DropShadowEffect BlurRadius="0"
+                                                       Color="White"
+                                                       Direction="245"
+                                                       ShadowDepth="1" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

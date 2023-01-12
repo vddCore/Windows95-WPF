@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="WindowsOldWindow.TipBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WindowsOldWindow"
+             mc:Ignorable="d" 
+             d:DesignHeight="152" d:DesignWidth="328"
+             Name="Control">
+    <Grid Background="#FFFFFF">
+        <Border Background="Transparent"
+                BorderThickness="1,1,0,0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                BorderBrush="#828282" />
+        
+        <Border Background="Transparent"
+                BorderThickness="0,0,1,1"
+                Margin="0,1,0,0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                BorderBrush="White" />
+        <Grid Background="#20FFFF00" Margin="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="28,20,0,0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left">
+                    <Image Source="Images/TipIcon.png"
+                   Width="23"
+                   Height="32"
+                   SnapsToDevicePixels="True"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   RenderOptions.BitmapScalingMode="NearestNeighbor" />
+
+                    <TextBlock FontFamily="Arial"
+                           FontWeight="Bold"
+                           FontSize="12"
+                           Text="Did you know..."
+                           Margin="18,6,0,0"
+                           TextOptions.TextRenderingMode="Aliased"
+                           TextOptions.TextFormattingMode="Display" />
+                </StackPanel>
+                
+                <TextBlock x:Name="TooltipText"
+                           Margin="69,0,40,0"
+                           FontFamily="Arial"
+                           TextWrapping="Wrap"
+                           xml:space="preserve"
+                           Text="{Binding ElementName=Control, Path=TipText}"
+                           TextOptions.TextRenderingMode="Aliased"
+                           TextOptions.TextFormattingMode="Display" />
+            </StackPanel>
+
+            
+        </Grid>
+    </Grid>
+</UserControl>
